@@ -1,0 +1,15 @@
+Fullstack project 3
+Meanstack project - online vegan shop
+
+This app was made as a schoole project. 
+
+Users:
+admin: Manager8*
+user1: Customer1!
+user2: Customer2@
+user3: Customer3#
+
+
+Author: Roye B. Kott.
+E-mail: royekott@gmail.com
+Date: 10/2018.

@@ -1,0 +1,227 @@
+<div class="managementTopImg"></div>
+<div class="container" id="managementContainer">
+    <div class="container" id="managementHeadlines">
+        <span class="section-title"><h2 class="section-heading">User Management</h2></span>
+        <h3 class="section-subheading text-muted">Hello <strong>{{ main.username }}, </strong>This page allows you to edit and delete users.</h3>
+        <h3 class="section-subheading text-muted">Also edit and add new products</h3>
+        <span class="section-title"><i class="fas fa-user-circle"></i></span>
+    </div>
+    <br>
+    <div class="userManagementContainer">
+        <div class="row text-center" id="managementSearchRow">
+            <h1>Search for any user or product throw database</h1>
+            <div class="navbar-form navbar-center">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="search" placeholder="search for..." ng-model="searchKeyword">
+                </div>
+                <button type="button" ng-click="management.search(searchKeyword, number);" class="btn btn-default hvr-icon-wobble-vertical hvr-underline-from-center">Search <i class="fas fa-search hvr-icon"></i></button>
+                <button type="button" ng-click="management.clear();" class="btn btn-default hvr-icon-wobble-vertical hvr-underline-from-center">Clear <i class="fas fa-broom hvr-icon"></i></button>
+            </div>
+            <div class="row show-hide-message" ng-show="management.showMoreError">
+                <div class="alert alert-danger">{{ management.showMoreError }}</div>
+            </div>
+        </div>
+        <br>
+        <button type="button" ng-click="management.showAll();" id="btnShowAllResults" class="btn btn-lg btn-block hvr-shutter-in-horizontal">Show All</button>
+        <br>
+        <div ng-show="searchFilter !== undefined">
+            <h1>User results</h1>
+            <p><strong>Total results: </strong>{{ (management.users | filter: searchFilter).length }}</p>
+        </div>
+        <div ng-show="searchFilter !== undefined">
+            <p><strong>Showing: </strong>{{( management.users | filter: searchFilter | limitTo: management.limit).length }}</p>
+        </div>
+        <br>
+        <div class="panel panel-primary col-md-12 col-sm-12 col-xs-12">
+            <div class="panel-heading">
+                <strong>User Management</strong>
+            </div>
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                </tr>
+                <tr ng-repeat="person in management.users | filter: searchFilter | limitTo: management.limit">
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.username }}</td>
+                    <td>{{ person.email }}</td>
+                    <td class="userManagementBtn">
+                        <button type="button" ng-click="management.editUserTemplate()" data-id="{{ person._id }}" class="btn btn-lg hvr-shutter-in-vertical hvr-icon-bob">Edit <i class="fas fa-pencil-alt hvr-icon"></i></button>
+                        <button type="button" id="deletUserBtn" ng-click="management.deleteUser(person.username);" ng-show="management.deleteAccess" class="btn btn-lg hvr-shutter-in-horizontal hvr-icon-bob">Delete <i class="fas fa-trash-alt hvr-icon"></i></button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br>
+    <div class="productManagementContainer">
+        <div ng-show="searchFilter !== undefined">
+            <h1>Product results</h1>
+            <p><strong>Total results: </strong>{{ (management.products | filter: searchFilter).length }}</p>
+        </div>
+        <div ng-show="searchFilter !== undefined">
+            <p><strong>Showing: </strong>{{( management.products | filter: searchFilter | limitTo: management.limit).length }}</p>
+        </div>
+        <br>
+        <button id="btnAddProduct" class="btn btn-lg hvr-bounce-to-right" title="Add new product" ng-click="management.addProductTepmlate()">Add new Product</button>
+        <br>
+        <br>
+        <div class="panel panel-primary col-md-12 col-sm-12 col-xs-12">
+            <div class="panel-heading">
+                <strong>Products Management</strong>
+            </div>
+            <table class="table">
+                <tr>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>ImagePath</th>
+                </tr>
+                <tr ng-repeat="product in management.products | filter: searchFilter | limitTo: management.limit">
+                    <td>{{ product.title }}</td>
+                    <td>{{ product.category }}</td>
+                    <td>{{ product.price }}</td>
+                    <td><img src="{{ product.imagePath }}"></td>
+                    <td>
+                        <button type="button" ng-click="management.editProductTemplate()" data-id="{{ product._id }}" class="btn btn-lg hvr-bounce-to-right hvr-icon-bob">Edit <i class="fas fa-pencil-alt hvr-icon"></i></button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/ng-template" id="edit_user_template">
+    <form name="editUserForm" ng-submit="management.editUser(userData)" novalidate> 
+        <h3>Edit User</h3>
+        <hr>
+        <div>
+            <label for="edit_name">Name:</label>
+            <input type="text" ng-model="userData.edit_name" class="form-control" name="edit_name"  placeholder={{management.placeholder_user_name}} required>
+        </div>
+        <div>
+            <label for="edit_username">Username:</label>
+            <input type="text" ng-model="userData.edit_username" class="form-control" name="edit_username" placeholder={{management.placeholder_user_username}} required>
+        </div>
+        <div>
+            <label for="edit_email">E-mail:</label>
+            <input type="email" ng-model="userData.email" class="form-control" name="edit_email" placeholder="{{management.placeholder_user_email}}" required>
+        </div>
+        <div>
+            <label for="edit_permission">Permission:</label>
+            <select type="text" ng-model="userData.edit_permission" class="form-control" name="edit_permission" required>
+                <option selected>-{{management.placeholder_user_permission}}-</option>
+                <option>user</option>
+                <option>admin</option>
+            </select>
+        </div>
+        <div>
+            <label for="edit_city">City:</label>
+            <select type="text" ng-model="userData.edit_city" class="form-control" name="edit_city" required>
+                <option selected>-{{management.placeholder_user_city}}-</option>
+                <option value="Tel-Aviv">Tel-Aviv</option>
+                <option value="Haifa">Haifa</option>
+                <option value="Eilat">Eilat</option>
+                <option value="Afula">Afula</option>
+                <option value="Beer-Sheva">Beer-Sheva</option>
+                <option value="Zefat">Zefat</option>
+                <option value="Natania">Natania</option>
+                <option value="Qiriat-gat">Qiriat-gat</option>
+                <option value="Jerusalem">Jerusalem</option>
+                <option value="Naharia">Naharia</option>
+            </select>
+        </div>
+        <div>
+            <label for="edit_street">Street:</label>
+            <input type="text" ng-model="userData.edit_street" class="form-control" name="edit_street" placeholder={{management.placeholder_user_street}} required>
+        </div>
+        <br>
+        <button ng-disabled="management.disabled" class="btn btn-success" type="submit">Submit Changes</button>
+        <div class="row show-hide-message-management" ng-show="management.successMsg">
+            <div ng-class="alert">{{ management.successMsg }}</div>
+        </div>
+        <div class="row show-hide-message-management" ng-show="management.errorMsg">
+            <div ng-class="alert">{{ management.errorMsg }}</div>
+        </div>
+    </form>
+</script>
+
+<script type="text/ng-template" id="editProduct">
+    <form name="editProductForm" ng-submit="management.editProduct(productData)" novalidate> 
+        <h3>Edit Product</h3>
+        <hr>
+        <div>
+            <label for="edit_title">Title:</label>
+            <input type="text" ng-model="productData.edit_title" class="form-control" name="edit_title"  placeholder={{management.placeholder_title}} required>
+        </div>
+        <div>
+            <label for="edit_category">Category:</label>
+            <select type="text" ng-model="productData.edit_category" class="form-control" name="edit_category" required>
+                <option selected>-{{management.placeholder_category}}-</option> 
+                <option>fresh</option>
+                <option>liquids</option>
+                <option>snacks</option>
+                <option>vegan</option>
+                <option>best_sellers</option>
+            </select>
+        </div>
+        <div>
+            <label for="edit_price">Price:</label>
+            <input type="number" ng-model="productData.edit_price" class="form-control" name="edit_price" placeholder="{{management.placeholder_price}}" required>
+        </div>
+        <div>
+            <label for="edit_imagePath">Image Path:</label>
+            <input type="text" ng-model="productData.edit_imagePath" class="form-control" name="edit_imagePath" placeholder="{{management.placeholder_imagePath}}" required>
+        </div>
+        <br>
+        <button ng-disabled="management.disabled" class="btn btn-success" type="submit">Submit Changes</button>
+        <div class="row show-hide-message-management" ng-show="management.successMsg">
+            <div ng-class="alert">{{ management.successMsg }}</div>
+        </div>
+        <div class="row show-hide-message-management" ng-show="management.errorMsg">
+            <div ng-class="alert">{{ management.errorMsg }}</div>
+        </div>
+    </form>
+</script>
+
+<script type="text/ng-template" id="newProduct">
+    <form name="addProductForm" ng-submit="management.addNewProduct(productData, addProductForm.$valid)" novalidate> 
+        <h3>Add Product to Shop</h3>
+        <hr>
+        <div ng-class="{ 'has-success': (addProductForm.new_title.$valid && addProductForm.new_title.$pristine), 'has-error': (addProductForm.new_title.$invalid && !addProductForm.new_title.$pristine) || (addProductForm.new_title.$invalid && addProductForm.$submitted) }">
+            <label for="new_title">Title:</label>
+            <input type="text" ng-model="productData.new_title" class="form-control" name="new_title" placeholder="Enter product title" required>
+            <p class="help-block" ng-show="(!addProductForm.new_title.$pristine && addProductForm.new_title.$error.required) || (addProductForm.$submitted && addProductForm.new_title.$error.required)">This field is required</p>
+        </div>
+        <div ng-class="{ 'has-success': (addProductForm.new_category.$valid && addProductForm.new_category.$pristine), 'has-error': (addProductForm.new_category.$invalid && !addProductForm.new_category.$pristine) || (addProductForm.new_category.$invalid && addProductForm.$submitted) }">
+            <label for="new_category">Category:</label>
+            <select type="text" ng-model="productData.new_category" class="form-control" name="new_category" required>
+                <option>fresh</option>
+                <option>liquids</option>
+                <option>snacks</option>
+                <option>vegan</option>
+                <option>best_sellers</option>
+            </select>
+            <p class="help-block" ng-show="(!addProductForm.new_category.$pristine && addProductForm.new_category.$error.required) || (addProductForm.$submitted && addProductForm.new_category.$error.required)">This field is required</p>
+        </div>
+        <div ng-class="{ 'has-success': (addProductForm.new_price.$valid && addProductForm.new_price.$pristine), 'has-error': (addProductForm.new_price.$invalid && !addProductForm.new_price.$pristine) || (addProductForm.new_price.$invalid && addProductForm.$submitted) }">
+            <label for="new_price">Price:</label>
+            <input type="number" ng-model="productData.new_price" class="form-control" name="new_price" placeholder="Enter product price" required>
+            <p class="help-block" ng-show="(!addProductForm.new_price.$pristine && addProductForm.new_price.$error.required) || (addProductForm.$submitted && addProductForm.new_price.$error.required)">This field is required</p>
+        </div>
+        <div ng-class="{ 'has-success': (addProductForm.new_imagePath.$valid && addProductForm.new_imagePath.$pristine), 'has-error': (addProductForm.new_imagePath.$invalid && !addProductForm.new_imagePath.$pristine) || (addProductForm.new_imagePath.$invalid && addProductForm.$submitted) }">
+            <label for="new_imagePath">Image Path:</label>
+            <input type="text" ng-model="productData.new_imagePath" class="form-control" name="new_imagePath" placeholder="Enter product image path" required>
+            <p class="help-block" ng-show="(!addProductForm.new_imagePath.$pristine && addProductForm.new_imagePath.$error.required) || (addProductForm.$submitted && addProductForm.new_imagePath.$error.required)">This field is required</p>
+        </div>
+        <br>
+        <button ng-disabled="management.disabled" class="btn btn-success" type="submit">Add To Shop</button>
+        <div class="row show-hide-message-management" ng-show="management.successMsg">
+            <div ng-class="alert">{{ management.successMsg }}</div>
+        </div>
+        <div class="row show-hide-message-management" ng-show="management.errorMsg">
+            <div ng-class="alert">{{ management.errorMsg }}</div>
+        </div>
+    </form>
+</script>

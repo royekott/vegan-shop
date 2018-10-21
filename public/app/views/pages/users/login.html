@@ -1,0 +1,31 @@
+<div id="headLogin" class="parallax1" parallax-speed="2">
+</div>
+<div class="user_options-forms" id="user_options-forms">
+    <h5>Don't have account yet?</h5>
+    <a href="/register" role="button" class="btn btn-danger" id="signUpBtnPass">Sign Up</a>
+    <div class="user_forms-login">
+        <h2 class="forms_title">Login</h2>
+        <form class="forms_form" name="sentMessage" id="contactForm" ng-submit="main.doLogin(loginData);" novalidate>
+            <fieldset class="forms_fieldset">
+                <div class="forms_field">
+                    <input ng-disabled="main.disabled" class="forms_field-input" type="text" name="username" placeholder="Enter Username.." ng-model="main.loginData.username" autocomplete="off">
+                </div>
+                <div class="forms_field">
+                    <input ng-disabled="main.disabled" name="password" type="password" placeholder="Enter Password.." ng-model="main.loginData.password" class="forms_field-input">
+                </div>
+            </fieldset>
+            <div class="clearfix"></div>
+            <br>
+            <button type="submit" ng-disabled="main.disabled" class="forms_buttons-action">Login</button>
+        </form>
+    </div>
+    <div class="jumbotron text-center" id="spinnerLoading" ng-show="main.loading">
+            <span class="glyphicon glyphicon-repeat spinner"></span>
+            <p>Loading....</p>
+        </div>
+        <div class="row show-hide-message-login" ng-show="main.successMsg || main.errorMsg">
+            <div ng-class="alert">{{ main.successMsg || main.errorMsg }}</div>
+        </div>
+</div>
+
+

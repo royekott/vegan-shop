@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main Angular Files -->
+    <script src="assets/js/angular.js"></script>
+    <script src="assets/js/angular-route.js"></script>
+    <script src="assets/js/angular-animate.js"></script>
+    <!-- Angular Config/Routes -->
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+    <!-- Angular Controllers -->
+    <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/controllers/managementCtrl.js"></script>
+    <script src="app/controllers/storeCtrl.js"></script>
+    <!-- Angular Services -->
+    <script src="app/services/userServices.js"></script>
+    <script src="app/services/authServices.js"></script>
+    <script src="app/services/storeServices.js"></script>
+    <!-- Cascade Style Sheets -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/hover.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/hover-min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/1.4.0/css/ngDialog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/1.4.0/css/ngDialog-theme-default.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/framework.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/signForm.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/signForm.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/aboutUs.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/Footer-with-map.css">
+    <title>E-commerce</title>
+</head>
+
+<body onload="testimonials();" ng-app="userApp" ng-controller="mainCtrl as main" ng-show="main.loadme" ng-cloak>
+    <div id="preloader"><div></div></div>
+    <div class="wrapper row1">
+        <div id="header" class="hoc clear"> 
+            <div id="logo" class="fl_left">
+                <h1><a href="/">Vegan</a></h1>
+            </div>
+            <nav class="navbar navbar-static-top navbar-right topNav">
+                <div class="container-fluide">
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                  </div>
+                  <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav clear">
+                        <li>
+                            <a ng-show="!main.isLoggedIn" href="/">Home</a>
+                        </li>
+                        <li>
+                            <a ng-show="!main.isLoggedIn" href="/login">Login</a>
+                        </li>
+                        <li>
+                            <a ng-show="!main.isLoggedIn" href="/register">Register</a>
+                        </li>
+                        <li>
+                            <a href="/about">About</a>
+                        </li>
+                        <li>
+                            <a ng-show="main.isLoggedIn" href="/store">Store</a>
+                        </li>
+                        <li>
+                            <a ng-show="main.isLoggedIn" href="/profile">Hello {{ main.username }}</a>
+                        </li>
+                        <li>
+                            <a ng-show="main.isLoggedIn" href="#" ng-click="main.logout();">Logout</a>
+                        </li>
+                        <li>
+                            <a ng-show="main.isLoggedIn && main.authorized" href="/management">Management</a>
+                        </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+        </div>
+    </div>  
+
+    <header ng-show="main.home">  
+        <div id="pageintro" class="parallax">
+            <figcaption class="heading">The Online Vegan Market</figcaption>
+            <img src="assets/images/vegan.png"> 
+        </div>
+    </header>
+
+    <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+    
+    <script src="assets/js/jquery.min.js"></script>
+
+    <div ng-view id="mainBody"></div>
+
+    <script type="text/ng-template" id="myModal">
+        <div class="container-fluide text-center" style="width: 100%; height: 350px; background: #fff;">
+            <div class="wrapLoading">
+                <div class="wrapLoading-loader"></div>
+                <div class="loaderbefore"></div>
+                <div class="circular"></div>
+                <div class="circular another"></div>
+                <div class="text">Loading</div>
+            </div>
+        </div>
+    </script>
+
+    <footer id="myFooter">
+        <div class="container-fluide">
+            <div class="row text-center">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <h5>Top Vegan websites</h5>
+                    <ul>
+                        <li><a href="https://ohsheglows.com/">- Oh She Glows -</a></li>
+                        <li><a href="https://minimalistbaker.com/">- Minimarket Backer -</a></li>
+                        <li><a href="https://www.thefullhelping.com/">- The full helping -</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <h5>Know all about</h5>
+                    <ul>
+                        <li><a href="https://www.thespruceeats.com/history-of-the-pineapple-1807645">Pineapple</a></li>
+                        <li><a href="https://www.prevention.com/food-nutrition/a20515820/everything-about-avocados/">Avocado</a></li>
+                        <li><a href="https://www.medicalnewstoday.com/articles/267290.php">Red Apples</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <h5>Organic medicine</h5>
+                    <ul>
+                        <li><a href="https://draxe.com/natural-headache-remedies-relief/">Headeache</a></li>
+                        <li><a href="https://www.medicalnewstoday.com/articles/322047.php">Stomach</a></li>
+                        <li><a href="https://theherbalacademy.com/8-herbal-home-remedies-for-colds-and-flu/">Colds</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <h5>Top recipies</h5>
+                    <ul>
+                        <li><a href="https://www.jamieoliver.com/recipes/butternut-squash-recipes/baked-squash/">Baked squash</a></li>
+                        <li><a href="https://www.jamieoliver.com/recipes/vegetable-recipes/simple-houmous/">Simple houmous</a></li>
+                        <li><a href="https://www.jamieoliver.com/recipes/vegetables-recipes/watercress-soup/">Watercress soup</a></li>
+                    </ul>
+                </div>
+            </div>
+            <iframe id="map-container" frameborder="0" style="border:0"
+            src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=kfar%20yhoshua+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" allowfullscreen="" >
+            </iframe>
+        </div>
+        <div class="social-networks">
+            <a href="#" class="twitter hvr-icon-float"><i class="fab fa-twitter-square hvr-icon"></i></a>
+            <a href="https://www.facebook.com/roye.kott" class="facebook hvr-icon-float"><i class="fab fa-facebook hvr-icon"></i></a>
+            <a href="#" class="google hvr-icon-float"><i class="fab fa-google-plus-square hvr-icon"></i></a>
+        </div>
+        <div class="footer-copyright">
+            <p>Roye Kott project ||| Johne Bryce ©  2018 </p>
+        </div>
+    </footer>
+
+    <script>
+        function testimonials() {
+        $("#testimonials").flexslider({
+            selector: ".carousel-items > li",
+            animation: "slide",
+            animationLoop: true,
+            pauseOnHover: true,
+            controlNav: false,
+            directionNav: true,
+            prevText: '<em class="hidden">Previous</em>',
+            nextText: '<em class="hidden">Next</em>',
+            touch: true,
+            smoothHeight: true,
+            slideshow: true,
+            slideshowSpeed: 10000,
+            start: function(slider) {
+                $('body').removeClass('loading');
+            }
+        });
+    }
+    </script>
+
+    <script src="assets/js/jquery.backtotop.js"></script>
+    <script src="assets/js/jquery.mobilemenu.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-dialog/1.4.0/js/ngDialog.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/home.js"></script>
+    <script src="assets/js/jquery.easypiechart.min.js"></script>
+    <script src="assets/js/jquery.flexslider-min.js"></script>
+</body>
+
+</html>

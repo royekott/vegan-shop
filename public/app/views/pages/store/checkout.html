@@ -1,0 +1,158 @@
+<div id="checkoutTopImg">
+    <img class="img" src="assets/images/checkout.jpg">
+</div>
+<div class="headlines">
+    <h1>Thank you {{ store.placeholder_user_name }}</h1>
+    <h2>Check out our best sellers <a href="/store" title="Back to store" class="hvr-icon-spin"><i class="fas fa-cannabis hvr-icon"></i></a></h2>
+</div>
+<div class='container-fluid' id="checkoutPageContainer">
+    <div class='window'>
+        <div class='order-info'>
+            <div class='order-info-content'>
+                <h2>Order Summary</h2>
+                <div class='line'></div>
+                <div class="emptyMsg" ng-show="store.emptyMsg">
+                    <h1>No items in cart</h1>
+                </div>
+                <table class='order-table' ng-repeat="item in store.cartProducts track by $index">
+                    <tbody class="hvr-bob hvr-underline-from-left">
+                        <tr>
+                            <td><img src="{{ item.product.imagePath }}" class='full-width'>
+                            </td>
+                            <td>
+                            <br> 
+                            <span class='thin'>{{ item.product.title }}</span><br>
+                            <span class='thin small'> Amount X {{ item.qty }}<br><br></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class='price'>${{ item.price }}</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class='line'></div>
+                <div class='total'>
+                    <div class="col-md-6 col-sm-6 col-xs-6 left">
+                        <h2>Total items: </h2><br>
+                        <h2>Total price: </h2>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6 right">
+                        <h2>{{ store.totalQty }}</h2><br>
+                        <h2>${{ store.totalPrice }}</h2>
+                    </div><br>
+                    <a href="/store" class="btn btn-block btn-lg hvr-bounce-to-right hvr-icon-wobble-horizontal">Back  <i class="fas fa-shopping-basket hvr-icon"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class='credit-info'>
+            <div class='credit-info-content'>
+                <img src='assets/images/credit_card.png' class='credit-card-image' id='credit-card-image'>
+                <h2>checkout form</h2>
+                <h3>please insert all details for a successfull checkout</h3>
+                <form name="checkoutForm" id="checkoutForm" ng-submit="store.checkout(orderData, checkoutForm.$valid)" novalidate>
+                    <div ng-class="{ 'has-success': (checkoutForm.city.$valid && checkoutForm.street.$pristine), 'has-error': (checkoutForm.city.$invalid && !checkoutForm.city.$pristine) || (checkoutForm.city.$invalid && checkoutForm.$submitted) }">
+                        <label for="city">City</label>
+                        <select class="form-control" type="text" name="city" id="city" ng-model="orderData.city" required>
+                            <option selected>{{ store.placeholder_user_city }}</option>
+                            <option value="Tel-Aviv">Tel-Aviv</option>
+                            <option value="Haifa">Haifa</option>
+                            <option value="Eilat">Eilat</option>
+                            <option value="Afula">Afula</option>
+                            <option value="Beer-Sheva">Beer-Sheva</option>
+                            <option value="Zefat">Zefat</option>
+                            <option value="Natania">Natania</option>
+                            <option value="Qiriat-gat">Qiriat-gat</option>
+                            <option value="Jerusalem">Jerusalem</option>
+                            <option value="Naharia">Naharia</option>
+                        </select>
+                        <p class="help-block" ng-show="(!checkoutForm.city.$pristine && checkoutForm.city.$error.required) || (checkoutForm.$submitted && checkoutForm.city.$error.required)">This field is required</p>
+                    </div>
+                    <div ng-class="{ 'has-success':(checkoutForm.street.$valid && !checkoutForm.street.$pristine), 
+                    'has-error':(!checkoutForm.street.$valid && !checkoutForm.street.$pristine) || (!checkoutForm.street.$valid && checkoutForm.$submitted) }">
+                        <label for="street">Street</label>
+                        <input type="text" id="street" name="street" placeholder="{{ store.placeholder_user_street }}" ng-model="orderData.street" class="form-control" ng-pattern="/^[a-zA-Z]+$/" ng-minlength="3" required>
+                        <p class="help-block" ng-show="(!checkoutForm.street.$pristine && checkoutForm.street.$error.required) || (checkoutForm.$submitted && checkoutForm.street.$error.required)">This field is required</p>
+                        <ul ng-show="(!checkoutForm.street.$pristine && checkoutForm.street.$error.pattern) || (!checkoutForm.street.$pristine && checkoutForm.street.$error.minlength) || (!checkoutForm.street.$pristine && checkoutForm.street.$error.maxlength)" class="help-block">
+                            <li>Must not contain any special characters</li>
+                            <li>Must not contain any numbers</li>
+                            <li>Must be at least 3 characters</li>
+                        </ul>
+                    </div>
+                    <div ng-class="{ 'has-success':(checkoutForm.shipping_date.$valid && !checkoutForm.shipping_date.$pristine), 
+                    'has-error':(!checkoutForm.shipping_date.$valid && !checkoutForm.shipping_date.$pristine) || (!checkoutForm.shipping_date.$valid && checkoutForm.$submitted) }">
+                        <label for="shipping_date">Time for delivery</label>
+                        <input type="text" id="shipping_date" name="shipping_date" class="form-control" pattern="([01]?[0-9]{1}|2[0-3]{1}):[0-5]{1}[0-9]{1}" ng-model="orderData.shipping_date" required>
+                        <p class="help-block" ng-show="(!checkoutForm.shipping_date.$pristine && checkoutForm.shipping_date.$error.required) || (checkoutForm.$submitted && checkoutForm.shipping_date.$error.required)">This field is required</p>
+                        <ul ng-show="(!checkoutForm.shipping_date.$pristine && checkoutForm.shipping_date.$error.pattern) || (!checkoutForm.shipping_date.$pristine && checkoutForm.shipping_date.$error.pattern)" class="help-block">
+                            <li>Must not contain any numbers</li>
+                            <li>Write the hour for delivery</li>
+                            <li>in the next format: hh:mm</li>
+                        </ul>
+                    </div>
+                    <div ng-class="{ 'has-success':(checkoutForm.credit_card.$valid && !checkoutForm.credit_card.$pristine), 
+                    'has-error':(!checkoutForm.credit_card.$valid && !checkoutForm.credit_card.$pristine) || (!checkoutForm.credit_card.$valid && checkoutForm.$submitted) }">
+                        <label for="credit_card">Credit Card</label>
+                        <input type="text" id="credit_card" ng-minlength="15" ng-maxlength="19"  ng-pattern="/^[0-9]+$/" name="credit_card" placeholder="Card Number" ng-model="orderData.credit_card" 
+                        class="form-control" required>
+                        <p class="help-block" ng-show="(!checkoutForm.credit_card.$pristine && checkoutForm.credit_card.$error.required) || (checkoutForm.$submitted && checkoutForm.credit_card.$error.required)">This field is required</p>  
+                        <ul ng-show="(!checkoutForm.credit_card.$pristine && checkoutForm.credit_card.$error.pattern) || (!checkoutForm.credit_card.$pristine && checkoutForm.credit_card.$error.minlength) || (!checkoutForm.credit_card.$pristine && checkoutForm.credit_card.$error.maxlength)" class="help-block">
+                            <li>Must not contain any special characters</li>
+                            <li>Contain only numbers</li>
+                            <li>Must between 15 to 19 numbers</li>
+                        </ul>
+                    </div>
+                    <div ng-class="{ 'has-success':(checkoutForm.cc_date.$valid && !checkoutForm.cc_date.$pristine), 
+                    'has-error':(!checkoutForm.cc_date.$valid && !checkoutForm.cc_date.$pristine) || (!checkoutForm.cc_date.$valid && checkoutForm.$submitted) }">
+                        <label for="cc_date">Card date: mm/yy</label>
+                        <input type="text" id="cc_date" name="cc_date" class="form-control" ng-model="orderData.cc_date" pattern="([0-9]{2}[/]?){2}" required>
+                        <p class="help-block" ng-show="(!checkoutForm.cc_date.$pristine && checkoutForm.cc_date.$error.required) || (checkoutForm.$submitted && checkoutForm.cc_date.$error.required)">This field is required</p>  
+                        <ul ng-show="(!checkoutForm.cc_date.$pristine && checkoutForm.cc_date.$error.pattern) || (!checkoutForm.cc_date.$pristine && checkoutForm.cc_date.$error.minlength) || (!checkoutForm.cc_date.$pristine && checkoutForm.cc_date.$error.maxlength)" class="help-block">
+                            <li>Card expire date</li>
+                            <li>Contain only numbers</li>
+                            <li>Mounth and Year</li>
+                            <li>In this format: mm/yy</li>
+                        </ul>
+                    </div>
+                    <div ng-class="{ 'has-success':(checkoutForm.cc_cvv.$valid && !checkoutForm.cc_cvv.$pristine), 
+                    'has-error':(!checkoutForm.cc_cvv.$valid && !checkoutForm.cc_cvv.$pristine) || (!checkoutForm.cc_cvv.$valid && checkoutForm.$submitted) }">
+                        <label for="cc_cvv">Card cvv</label>
+                        <input type="number" id="cc_cvv" name="cc_cvv" class="form-control" ng-model="orderData.cc_cvv" ng-minlength="3" ng-pattern="/^[0-9]+$/" ng-maxlength="3" required>
+                        <p class="help-block" ng-show="(!checkoutForm.cc_cvv.$pristine && checkoutForm.cc_cvv.$error.required) || (checkoutForm.$submitted && checkoutForm.cc_cvv.$error.required)">This field is required</p>  
+                        <ul ng-show="(!checkoutForm.cc_cvv.$pristine && checkoutForm.cc_cvv.$error.pattern) || (!checkoutForm.cc_cvv.$pristine && checkoutForm.cc_cvv.$error.minlength) || (!checkoutForm.cc_cvv.$pristine && checkoutForm.cc_cvv.$error.maxlength)" class="help-block">
+                            <li>3 digit numbers code</li>
+                            <li>Back of your cc</li>                            
+                        </ul>
+                    </div>
+                    <div>
+                        <button ng-disabled="store.disabled" type="submit" class="btn btn-lg btn-block hvr-float-shadow hvr-icon-wobble-horizontal"><i class="fab fa-amazon-pay hvr-icon"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+        <div class="jumbotron text-center" ng-show="store.loading">
+            <span class="glyphicon glyphicon-repeat spinner"></span>
+            <p>Loading....</p>
+        </div>
+        <br>
+        <div class="row show-hide-message-reg" ng-show="store.successMsg || store.errorMsg">
+            <div ng-class="alert">{{ store.successMsg || store.errorMsg }}</div>
+        </div>
+    </div>
+    
+    <script type="text/ng-template" id="checkoutRecipe">
+        <div class="ngdialog-message">
+            <h3 class="text-center help-block">You Purchase Successfully!</h3>
+            <img class="img img-circle" src="assets/images/success.png">
+            <h4 class="help-block">Click to Download Recipe</h4>
+            <button type="button" class="btn btn-primary" ng-click="store.download()">download</button>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-success" ng-click="confirm('OK')">Confirm</button>
+        </div>
+    </script>

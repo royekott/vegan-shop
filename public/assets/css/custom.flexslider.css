@@ -1,0 +1,17 @@
+
+.flex-container a:active, .flexslider a:active, .flex-container a:focus, .flexslider a:focus{outline:none;}
+.slides, .carousel-items, .flex-direction-nav, .flex-control-nav{margin:0; padding:0; list-style:none;}
+
+.flexslider{display:block; position:relative; width:100%; height:100%; margin:0; padding:0;}
+.flexslider .slides, .flexslider .carousel-items{display:block; position:relative; width:100%; height:100%; white-space:nowrap;}
+.flexslider .slides > li, .flexslider .carousel-items > li{display:none; position:relative; -webkit-backface-visibility:hidden;}
+
+.slides::before, .slides::after, .carousel-items::before, .carousel-items::after{display:table; content:"";}
+.slides::after, .carousel-items::after{clear:both;}
+
+.flex-viewport{max-height:2000px; transition:all 1s ease;}
+.loading .flex-viewport{max-height:300px;}
+
+.flex-direction-nav li a{transition:all .3s ease-in-out; font-family:"FontAwesome";}
+.flex-direction-nav li a.flex-prev::before{content:"\f104";}
+.flex-direction-nav li a.flex-next::before{content:"\f105";}

@@ -1,0 +1,696 @@
+body {
+    /*background: linear-gradient(to bottom, #a1ffce, #faffd1);*/
+    background: #ddeedd;
+}  
+
+input {
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    color: #282828;
+    font-size: 25px;
+}
+
+input::placeholder {
+    font-size: 1.5rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.2rem;
+    color: #b3b3b3;
+}
+
+.user_options-forms {
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    width: 500px;
+    min-height: 380px;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, #efefbb, #d4d3dd);
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    animation: fadeIn 1s ease-in;
+}
+
+.user_options-forms .forms_title {
+    margin-top: -15px;
+    margin-bottom: 15px;
+    font-family: Alice, Georgia, serif;
+    text-align: left;
+    margin-bottom: 45px;
+    font-size: 3.1rem;
+    font-weight: 500;
+    line-height: 1em;
+    text-transform: uppercase;
+    color: #34A853;
+    letter-spacing: 0.1rem;
+}
+
+.user_options-forms .forms_field:not(:last-of-type) {
+    margin-bottom: 40px;
+}
+
+.user_options-forms .forms_field-input {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    padding: 6px 20px 6px 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.1rem;
+    font-weight: 300;
+    color: gray;
+    letter-spacing: 0.2rem;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.user_options-forms .forms_field-input:focus {
+    border-color: gray;
+}
+
+.user_options-forms .forms_buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 35px;
+}
+
+.user_options-forms .forms_buttons-action {
+    background-color: #34A853;
+    border-radius: 6px;
+    padding: 15px 60px;
+    font-size: 1.6rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.user_options-forms .forms_buttons-action:hover {
+    background-color: #2a8943;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.user_options-forms .user_forms-login {
+    position: absolute;
+    top: 70px;
+    left: 40px;
+    width: calc(100% - 80px);
+}
+
+
+/**
+* Triggers
+*/
+
+@keyframes swing {
+    20% {
+      -webkit-transform: rotate3d(0, 0, 1, 15deg);
+      transform: rotate3d(0, 0, 1, 15deg);
+    }
+  
+    40% {
+      -webkit-transform: rotate3d(0, 0, 1, -10deg);
+      transform: rotate3d(0, 0, 1, -10deg);
+    }
+  
+    60% {
+      -webkit-transform: rotate3d(0, 0, 1, 5deg);
+      transform: rotate3d(0, 0, 1, 5deg);
+    }
+  
+    80% {
+      -webkit-transform: rotate3d(0, 0, 1, -5deg);
+      transform: rotate3d(0, 0, 1, -5deg);
+    }
+  
+    to {
+      -webkit-transform: rotate3d(0, 0, 1, 0deg);
+      transform: rotate3d(0, 0, 1, 0deg);
+    }
+  }
+  
+  .swing {
+    -webkit-transform-origin: top center;
+    transform-origin: top center;
+    -webkit-animation-name: swing;
+    animation-name: swing;
+  }
+
+  .user_options-forms h5 {
+    position: absolute;
+    left: 5px;
+    top: 7px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
+    color: crimson;
+  }
+
+  #signUpBtnPass {
+      position: absolute;
+      right: 5px;
+      top: 10px;
+
+  }
+
+  /*********** Register Form *******/
+ 
+  @import 'https://fonts.googleapis.com/css?family=Dosis|Roboto:300,400';
+  
+  #regForm {
+      height: 0;
+  }
+
+  .step1 , .step2 {
+      top: 25%;
+      position: absolute;
+      left: 39%;
+      text-align: center;
+      background: linear-gradient(to bottom, #7474bf, #348ac7);
+      width: 22%;
+      height: auto;
+      border-radius: 5px;
+      padding: 10px 20px 20px 20px;
+      box-shadow: 0 2px 50px 0 #3ca55c;
+      box-sizing: border-box;
+      outline: 0;
+      animation: fadeIn 0.7s ease-in;
+  }
+  
+  .step1 select {
+      width: 175px;
+      height: 28px;
+      color: gray;
+      border-radius: 10px;
+      margin-bottom: 7px;
+      background-color: #fff; 
+      outline: 0;
+  }
+  
+  .step1 p , .step2 p {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 200;
+      text-transform: uppercase;
+      font-size: 15px;
+      color: #fff;
+  }
+  
+  ::placeholder {
+      color: #fff;
+  }
+  
+  .step1 p > span , .step2 p > span {
+      padding-top: 1px;
+      display: block;
+      font-weight: 400;
+      font-size: 9px;
+      margin-bottom: 5px;
+  }
+  
+  .step1 label, .step2 label {
+      color: #434343;
+      font-family: 'Roboto', sans-serif;
+      font-size: 20px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+  }
+  
+  .regStepsHeadlines {
+      font-family: 'Dosis';
+      font-size: 35px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 18px;
+      font-weight: 600;
+  }
+  
+  .step1 input, .step1 button, 
+  .step2 input, .step2 button {
+      outline: none !important; 
+  }
+  
+
+
+  .step2 button.form-btn, .step1 button.form-btn {
+      width: 50%;
+      height: 40px;
+      border: 0;
+      font-family: 'Dosis';
+      font-size: 24px;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 10px;
+  }
+  
+  .step1 button.form-btn.sx, .step2 button.form-btn.sx {
+      border-radius: 0 0 0 5px;
+      background-color: #512E5F;
+      opacity: 0.6;
+      color: #fff;
+      transition: 0.4s;
+  }
+  
+  .step1 button.form-btn.sx:hover, .step2 button.form-btn.sx:hover {
+      opacity: 1;
+      transition: 0.4s;
+  }
+  
+  .step1 button.form-btn.dx, .step2 .form-btn.dx {
+      border-radius: 0 0 5px 0;
+      background-color: #33CC33;
+      color: #fff;
+  }
+  
+  .step1 input, .step2 input {
+      border: none;
+      border-bottom: 1px solid #fff;
+      width: 85%;
+      font-family: 'Roboto';
+      color: #e3eaa7;
+      text-align: center;
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 15px;
+      background-color: transparent;
+  }
+  
+  .step2 input,
+  .step1 .w100 {
+      width: 100%;
+  }
+  
+  .step2 {
+      z-index: 1;
+      transform: perspective(100px) translate3d(0px, 0px, 0px);
+      opacity: 0.2;
+  }
+  
+  .step1 {
+      z-index: 2;
+  }
+  
+  .active-dx{
+      animation-name: foregrounding-dx;
+      animation-duration: 0.9s;
+      animation-fill-mode: forwards;
+  }
+  
+  .active-sx{
+      animation-name: foregrounding-sx;
+      animation-duration: 0.9s;
+      animation-fill-mode: forwards;
+  }
+  
+  .inactive-dx{
+      animation-name: overshadowing-dx;
+      animation-duration: 0.9s;
+      animation-fill-mode: forwards;
+  }
+  
+  .inactive-sx{
+      animation-name: overshadowing-sx;
+      animation-duration: 0.9s;
+      animation-fill-mode: forwards;
+  }
+  
+  @keyframes overshadowing-dx {
+      0%{
+          z-index:2;
+          transform: perspective(100px) translate3d(0px, 0px, 0px);
+          opacity: 1;
+          box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.25);
+      }
+      100%{
+          z-index: 1;
+          transform: perspective(100px) translate3d(0px, 0px, 0px);
+          opacity: 1;
+          box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+      }
+  }
+  
+  @keyframes overshadowing-sx {
+      0%{
+          z-index:2;
+          transform: perspective(100px) translate3d(0px, 0px, 0px);
+          opacity: 1;
+          box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.25);
+      }
+      100%{
+          z-index: 1;
+          transform: perspective(100px) translate3d(-300px, 0px, 0px);
+          opacity: 1;
+          box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+      }
+  }
+  
+  @keyframes foregrounding-dx {
+      0%{
+          z-index:1;
+          transform: perspective(100px) translate3d(100px, 0px, 0px);
+          opacity: 0.5;
+      }
+      50%{
+          z-index:2;
+          transform: perspective(100px) translate3d(200px, 0px, 0px);
+      }
+      100%{
+          z-index:2;
+          transform: perspective(100px) translate3d(300px, 0px, 0px);
+          opacity: 1;
+      }
+  }
+  
+  @keyframes foregrounding-sx {
+      0%{
+          z-index:1;
+          transform: perspective(100px) translate3d(-100px, 0px, 0px);
+          opacity: 0.5;
+      }
+      50%{
+          z-index:2;
+          transform: perspective(100px) translate3d(-400px, 0px, 0px);
+      }
+      100%{
+          z-index:2;
+          transform: perspective(100px) translate3d(0px, 0px, 0px);
+          opacity: 1;
+      }
+  }
+
+
+/* Responsive */
+
+@media(max-width: 1440px) {
+    .user_options-forms {
+        width: 30%;
+        height: 350px;
+        top: 28%;
+        left: 35%;
+    }          
+    .step1, .step2 {
+        width: 26%;
+        left: 37%;
+    }
+}
+
+@media(max-width: 1200px) {
+
+    .regStepsHeadlines {
+        font-size: 28px;
+    }
+    .step1, .step2 {
+        width: 32%;
+        left: 34%;
+    }
+    @keyframes foregrounding-dx {
+        0%{
+            z-index:1;
+            transform: perspective(100px) translate3d(100px, 0px, 0px);
+            opacity: 0.5;
+        }
+        50%{
+            z-index:2;
+            transform: perspective(100px) translate3d(200px, 0px, 0px);
+        }
+        100%{
+            z-index:2;
+            transform: perspective(100px) translate3d(200px, 0px, 0px);
+            opacity: 1;
+        }
+    }
+    @keyframes overshadowing-sx {
+        0%{
+            z-index:2;
+            transform: perspective(100px) translate3d(0px, 0px, 0px);
+            opacity: 1;
+        }
+        100%{
+            z-index: 1;
+            transform: perspective(100px) translate3d(-200px, 0px, 0px);
+            opacity: 1;
+        }
+    }
+}
+
+@media(max-width: 1024px) {
+    .user_options-forms {
+        width: 36%;
+        left: 32%;
+    }
+}
+
+@media(max-width: 930px) {
+    .regStepsHeadlines {
+        font-size: 22px;
+    }
+    .step1 button.form-btn.sx, .step2 .form-btn.dx {
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 800px) {
+    .user_options-forms {
+        width: 42%;
+        left: 29%;
+    }
+}
+
+@media(max-width: 768px) {
+    .step1, .step2 {
+        width: 38%;
+        left: 31%;
+    }
+    @keyframes foregrounding-dx {
+        0%{
+            z-index:1;
+            transform: perspective(100px) translate3d(100px, 0px, 0px);
+            opacity: 0.5;
+        }
+        50%{
+            z-index:2;
+            transform: perspective(100px) translate3d(200px, 0px, 0px);
+        }
+        100%{
+            z-index:2;
+            transform: perspective(100px) translate3d(175px, 0px, 0px);
+            opacity: 1;
+        }
+    }
+    @keyframes overshadowing-sx {
+        0%{
+            z-index:2;
+            transform: perspective(100px) translate3d(0px, 0px, 0px);
+            opacity: 1;
+        }
+        100%{
+            z-index: 1;
+            transform: perspective(100px) translate3d(-175px, 0px, 0px);
+            opacity: 1;
+        }
+    }
+}
+
+@media(max-width: 670px) {
+    .user_options-forms {
+        width: 50%;
+        left: 25%;
+        min-height: 110px;
+    }
+    .user_options-forms h5 {
+        font-size: 12px;
+    }
+    #signUpBtnPass {
+        font-size: 10px;
+    }
+    .user_forms-login .forms_title {
+        font-size: 15px;
+    }
+}
+
+@media(max-width: 600px) {
+    .step1, .step2 {
+        width: 40%;
+        left: 30%;
+    }
+    @keyframes foregrounding-dx {
+        0%{
+            z-index:1;
+            transform: perspective(100px) translate3d(100px, 0px, 0px);
+            opacity: 0.5;
+        }
+        50%{
+            z-index:2;
+            transform: perspective(100px) translate3d(200px, 0px, 0px);
+        }
+        100%{
+            z-index:2;
+            transform: perspective(100px) translate3d(135px, 0px, 0px);
+            opacity: 1;
+        }
+    }
+    @keyframes overshadowing-sx {
+        0%{
+            z-index:2;
+            transform: perspective(100px) translate3d(0px, 0px, 0px);
+            opacity: 1;
+        }
+        100%{
+            z-index: 1;
+            transform: perspective(100px) translate3d(-135px, 0px, 0px);
+            opacity: 1;
+        }
+    }
+    .regStepsHeadlines {
+        font-size: 18px;
+    }
+    .step1 button.form-btn.sx, .step2 .form-btn.dx {
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 540px) {
+    .user_options-forms {
+        width: 60%;
+        left: 20%;
+    }
+    .user_options-forms .forms_buttons-action {
+        font-size: 13px;
+        padding: 10px 40px;
+    }
+    .step1, .step2 {
+        width: 42%;
+        left: 29%;
+    }
+}
+
+
+@media(max-width: 490px) {
+    .step1, .step2 {
+        width: 48%;
+        left: 26%;
+    }
+    @keyframes foregrounding-dx {
+        0%{
+            z-index:1;
+            transform: perspective(100px) translate3d(100px, 0px, 0px);
+            opacity: 0.5;
+        }
+        50%{
+            z-index:2;
+            transform: perspective(100px) translate3d(200px, 0px, 0px);
+        }
+        100%{
+            z-index:2;
+            transform: perspective(100px) translate3d(115px, 0px, 0px);
+            opacity: 1;
+        }
+    }
+    @keyframes overshadowing-sx {
+        0%{
+            z-index:2;
+            transform: perspective(100px) translate3d(0px, 0px, 0px);
+            opacity: 1;
+        }
+        100%{
+            z-index: 1;
+            transform: perspective(100px) translate3d(-115px, 0px, 0px);
+            opacity: 1;
+        }
+    }
+}
+
+@media(max-width: 425px) {
+    .step1, .step2 {
+        width: 46%;
+        left: 27%;
+    }
+    @keyframes foregrounding-dx {
+        0%{
+            z-index:1;
+            transform: perspective(100px) translate3d(100px, 0px, 0px);
+            opacity: 0.5;
+        }
+        50%{
+            z-index:2;
+            transform: perspective(100px) translate3d(200px, 0px, 0px);
+        }
+        100%{
+            z-index:2;
+            transform: perspective(100px) translate3d(100px, 0px, 0px);
+            opacity: 1;
+        }
+    }
+    @keyframes overshadowing-sx {
+        0%{
+            z-index:2;
+            transform: perspective(100px) translate3d(0px, 0px, 0px);
+            opacity: 1;
+        }
+        100%{
+            z-index: 1;
+            transform: perspective(100px) translate3d(-100px, 0px, 0px);
+            opacity: 1;
+        }
+    }
+    .step1 label, .step2 label {
+        font-size: 15px;
+    }
+    .step1 select {
+        width: auto;
+    }
+}
+
+@media(max-width: 400px) {
+    .user_options-forms {
+        width: 70%;
+        left: 15%;
+    }
+}
+
+@media(max-width: 380px) {
+    @keyframes foregrounding-dx {
+        0%{
+            z-index:1;
+            transform: perspective(100px) translate3d(100px, 0px, 0px);
+            opacity: 0.5;
+        }
+        50%{
+            z-index:2;
+            transform: perspective(100px) translate3d(200px, 0px, 0px);
+        }
+        100%{
+            z-index:2;
+            transform: perspective(100px) translate3d(88px, 0px, 0px);
+            opacity: 1;
+        }
+    }
+    @keyframes overshadowing-sx {
+        0%{
+            z-index:2;
+            transform: perspective(100px) translate3d(0px, 0px, 0px);
+            opacity: 1;
+        }
+        100%{
+            z-index: 1;
+            transform: perspective(100px) translate3d(-88px, 0px, 0px);
+            opacity: 1;
+        }
+    }
+    .step1 label, .step2 label {
+        font-size: 14px;
+    }
+    .regStepsHeadlines {
+        font-size: 15px;
+    }
+    .step1 button.form-btn.sx, .step2 .form-btn.dx {
+        width: 93px;
+    }
+}
+
+@media(max-width: 340px) {
+    .user_options-forms {
+        width: 80%;
+        left: 10%;
+    }
+}

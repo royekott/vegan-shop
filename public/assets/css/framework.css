@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+
+html, body {
+    margin: 0;
+    padding:0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.clear {
+    display: block;
+}
+
+.clear::before, .clear::after {
+    display: table;
+    content: "";
+}
+
+.clear, .clear::after {
+    clear: both;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+}
+
+.fl_left {
+    float: left;
+}
+
+.fl_right {
+    float: right;
+}
+
+.hoc {
+    display: block;
+     margin: 0 auto;
+}
+
+header, nav {
+    display: block;
+     margin: 0; 
+     padding: 0;
+}

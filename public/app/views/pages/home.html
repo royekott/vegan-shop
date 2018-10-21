@@ -1,0 +1,175 @@
+<div class="container-fluide homePage" ng-controller="mainCtrl as main">
+    <div id="section1">
+        <main class="clear">
+            <div class="group">
+                <h1>Welcom</h1>
+                <hr>
+                <img src="assets/images/vaganIcon.png">
+                <p>Join the vegan market community</p>
+                <br>
+                <article class="one_quarter first col-md-3 col-sm-6 col-xs-12"><a href="#" class="icon round"><i class="fa fa-user"></i></a>
+                    <h6>Sign up quick</h6>
+                </article>
+                <article class="one_quarter col-md-3 col-sm-6 col-xs-12"><a href="#" class="icon round"><i class="fa fa-shopping-cart"></i></a>
+                    <h6>Shop fresh products online</h6>
+                </article>
+                <article class="one_quarter col-md-3 col-sm-6 col-xs-12"><a href="#" class="icon round"><i class="fa fa-credit-card"></i></a>
+                    <h6>Secure Payment</h6>
+                </article>
+                <article class="one_quarter col-md-3 col-sm-6 col-xs-12"><a href="#" class="icon round"><i class="fa fa-bicycle"></i></a>
+                    <h6>Fast Deliveries</h6>
+                </article>
+            </div>
+            <hr>
+            <img id="testImg" src="assets/images/registration.png">
+            <div class="row accountBricks">
+                <div class="col-md-6 col-sm-6" id="loginBrick">
+                    <div class="brick hvr-hang">
+                        <a href="/login"><h2>log in</h2></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6" id="regBrick">
+                    <div class="brick hvr-hang">
+                        <a href="/register"><h2>sign up</h2></a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="storeInfo">
+        <div class="split clear">
+            <hr>
+            <div class="col-md-12">
+                <img id="testImg" src="assets/images/shop.png">
+            </div>
+            <div class="box col-xs-12"> 
+                <div id="boxProducCount">
+                    <article class="hvr-wobble-bottom">
+                    <h4>product available to order online:</h4>
+                    <h4 style="color: aliceblue;"><img src="assets/images/productCount.png"> {{ main.productCount }}</h4>
+                    </article>
+                </div>
+                <div id="boxAboutUs">
+                    <article class="hvr-wobble-bottom">
+                    <h4>check out all about us</h4>
+                    <a href="/about" class="hvr-icon-drop">click here <i class="fas fa-angle-double-right hvr-icon"></i></a>
+                    </article>
+                </div>
+            </div>
+            <div class="boxRight col-xs-12">
+                <div class="overlay">
+                    <div class="clear">  
+                        <ul class="pr-charts group">
+                            <li class="pr-chart-ctrl" data-animate="false">
+                                    <p>fast deliveries</p>
+                                <div class="pr-chart" data-percent="24h"><i></i></div>
+                                <p>24 hours</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12" id="contactUs">
+        <hr>
+        <h1>Contact us</h1>
+        <hr>
+        <form class="contactusForm" name="contactusForm" ng-submit="main.contactUs(contactMail, contactusForm.$valid)">
+            <div class="input-group">
+                <input type="email" name="contactMail" ng-model="contactMail" class="form-control" placeholder="Enter your email and we will return to you soon.." required>
+                <span class="input-group-btn">
+                    <button class="btn hvr-bounce-to-right" type="submit">send</button>
+                </span>
+            </div>    
+        </form>
+    </div>
+    
+    <div class="reviewsSection" style="background-image:url('images/demo/backgrounds/02.png')">
+        <div class="col-md-12 text-center">
+            <img id="testImg" src="assets/images/comment.png">
+            <hr>
+        </div>
+        <section class="clear"> 
+        <div class="reviewHeadline">
+            <h2 class="underlined">customers reviews</h2>
+            <p><em>here some of the beso reviews we recieved..</em></p>
+        </div>
+        <div id="testimonials" class="clear">
+            <ul class="carousel-items">
+            <li>
+                <blockquote><img class="qaimg" src="assets/images/qaClose.png"> Going to bed hungry. 
+                    Scrounging for scraps. Your planet was on the brink of collapse. I was the one who stopped that. 
+                    You know what’s happened since then? The children born have known nothing but full bellies and clear skies.
+                    It’s a paradise. <img class="qaimg" src="assets/images/qaOpen.png"></blockquote>
+                <figure><img class="customer-img" src="assets/images/thanos.jpg">
+                <figcaption><strong>Thanos</strong></figcaption>
+                </figure>
+            </li>
+            <li>
+                <blockquote><img class="qaimg" src="assets/images/qaClose.png"> All your life you are told the things you cannot do. 
+                    All your life they will say you’re not good enough or strong enough or talented enough. 
+                    They will say you’re the wrong height or the wrong weight or the wrong type to play this or be this or achieve this. 
+                    They will tell you no. A thousand times no. until all the no’s become meaningless. All your life they will tell you no. 
+                    Quite firmly and very quickly. And you will tell them yes. <img class="qaimg" src="assets/images/qaOpen.png"></blockquote>
+                <figure><img class="customer-img" src="assets/images/lebron.png">
+                <figcaption><strong>Lebron</strong></figcaption>
+                </figure>
+            </li>
+            <li>
+                <blockquote><img class="qaimg" src="assets/images/qaClose.png"> All right, all right, cool it! I see what's happening here. 
+                    You're both young, you're both unsure about your place in the universe, and you both want to be Grandpa's favorite. 
+                    I can fix this. Morty, sit here. Summer, you sit here. Now, listen—I know the two of you are very different from each other in a lot of ways, 
+                    but you have to understand that as far as Grandpa's concerned, you're both pieces of shit! Yeah. 
+                    I can prove it mathematically. Actually, l-l-let me grab my whiteboard. 
+                    This has been a long time coming, anyways. <img class="qaimg" src="assets/images/qaOpen.png"></blockquote>
+                <figure><img class="customer-img" src="assets/images/rick.png">
+                <figcaption><strong>Rick</strong></figcaption>
+                </figure>
+            </li>
+            </ul>
+        </div>
+        </section>
+    </div>
+
+    <div class="seasonSection">
+        <div class="col-md-6 col-sm-6 com-xs-12 wideLeftTop hvr-bounce-to-top">
+            <h2>Some photos from our daylie work</h2>
+            <h2>All for having the fresh products in pur shop <img src="assets/images/sprout.png"></h2>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-6 thinMiddleTop hvr-trim">
+            <div class="overPic">
+                <h2>still with dirt</h2>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-6 thinRightTop hvr-trim">
+            <div class="overPic">
+                <h2>our hard work rmployee</h2>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-6 thinLeftBottom hvr-trim">
+            <div class="overPic">
+                <h2>dry pperes dry</h2>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-6 thingMiddleBottom hvr-trim">
+            <div class="overPic">
+                <h2>fresh from the ground</h2>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 wideRightBottom hvr-trim">
+            <div class="overPic">
+                <h2>looking good</h2>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<script type="text/ng-template" id="contactTemplate">
+    <div class="container text-center" style="width: 100%; height: 100%; background: #588c7e; color: #fff; padding: 10px 7px; border-radius: 4px;">
+        <h3>{{main.contactMail}}</h3>
+        <h4>E-mail recieved Successfully</h4>
+        <h4>Check your E-mail soon</h4>
+    </div>
+</script>

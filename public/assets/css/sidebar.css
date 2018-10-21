@@ -1,0 +1,300 @@
+  .Wrapper {
+    display: table;
+    width: 100%;
+    background: linear-gradient(to bottom, #daebe8, #E3FCEC);
+    padding: 0;
+    animation-delay: 1s;
+    animation: bounceInUp 0.9s ease-in;
+  }
+  #storeTopImg {
+    animation: fadeIn 0.9s ease-in;
+    background: url(../images/slide14.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 75vh;
+    opacity: 0.7;
+  }
+
+  #storeTopImg img {
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    top: 30%;
+    left: 35%;
+    border-radius: 10px;
+  }
+
+  .Sidebar {
+    z-index: 1;
+    position: relative;
+    display: table-cell;
+    min-width: 17vw;
+    padding-left: 7px;
+    transition: max-width 0.3s ease , min-width 0.3s ease;
+  }
+
+  .sidebarBorder {
+    margin-top: 30px;
+    box-shadow: 0 6px 4px 0px rgba(0, 0, 0, 0.25); 
+    background: #ffffff;
+  }
+
+  .sidebarBorder .totalPrice {
+    padding: 10px 10px;
+    margin-bottom: 30px;
+    font-size: 2.1em;
+    color: #588c7e;
+    font-family: fantasy;
+    font-weight: 100;
+    border: 1px solid #588c7e;
+    transition: 0.4s;
+  }
+
+  .sidebarBorder .totalPrice:hover {
+    background: #588c7e;
+    color: #ffffff;
+    transition: 0.3s;
+  }
+
+  .sidebarBorder .cartButtons a, .sidebarBorder .cartButtons button  {
+    font-size: 1.7em;
+  }
+
+  .sidebarBorder .cartButtons a {
+    background: #96ceb4;
+    color: #ffffff;
+    margin-bottom: 20px;
+    transition: 0.3s;
+  }
+
+  .sidebarBorder .cartButtons a:hover {
+    background: #00cc66;
+    transition: 0.3s;
+  }
+
+  .sidebarBorder .cartButtons button {
+    background: #87bdd8;
+    color: #ffffff;
+    transition: 0.3s;
+  }
+
+  .sidebarBorder .cartButtons button:hover {
+    background: #4d79ff;
+    transition: 0.3s;
+  }
+
+  .Sidebar .list-group-item {
+    transition: 0.3s;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 15px;
+    display: inline-block;
+  }
+
+  .Sidebar .list-group-item {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .Sidebar .itemLeft {
+    float: left;
+  }
+
+.Sidebar .itemRight .my-0 {
+  font-size: 1.3em;
+  font-weight: bold;
+  padding: 2px 10px;
+}
+
+.Sidebar .itemRight button {
+  float: left;
+}
+
+.Sidebar .button3 {
+  margin-top: 5px;
+  font-size: 15px;
+  margin-right: 2px;
+  display: inline-block;
+  padding: 0px 15px;
+  font-weight: bold;
+  text-align: center;
+  background-color: white; 
+  color: black; 
+  border: 1px solid #3F729B;
+  transition: 0.3s;
+}
+
+#cartBtns {
+  display: inline-flex;
+  text-align: center;
+}
+
+#cartItemPrice {
+  margin-top: 6px;
+}
+
+#cartItemPrice .badge {
+  background-color: #fff;
+  color: darkgreen;
+  font-size: 1.2em;
+  font-family: monospace;
+  letter-spacing: -2px;
+}
+
+.Sidebar .button3:hover {
+  transition: 0.3s;
+  background-color: firebrick;
+  border-color: #fff;
+  color: white;
+} 
+
+  .Sidebar .itemLeft h4 {
+    display: inline;
+  }
+
+  .Sidebar.is-collapsed {
+    transition: 0.4s;
+    max-width: 100px;
+    min-width: 100px;
+  }
+
+  .Sidebar.is-collapsed .list-group {
+    transition: 0.3s;
+    display: none;
+  }
+
+  .Sidebar.is-collapsed .cartButtons {
+    font-size: 5px;
+  }
+
+  .Sidebar.is-collapsed .Sidebar-toggleText {
+    display: none;
+  }
+
+  .Sidebar-title {
+    margin-top: 50px;
+  }
+
+  .Sidebar-logo {
+    color: #818181;
+    text-align: center;
+  }
+
+  .Sidebar-logo h1 {
+    display: inline;
+  }
+
+  .Sidebar-logo span {
+    font-size: 1.4em;
+    margin-top: -8px;
+    margin-left: 5px;
+  }
+
+  .Sidebar-logo .sidebar-icon {
+      position: absolute;
+  }
+
+  .Sidebar-res {
+    margin-top: 10px;
+    position: absolute;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    box-shadow: 0px 0px 6px 0px darkseagreen;
+  }
+  .Sidebar-res:hover {
+    background: darkseagreen;
+    opacity: 0.8;
+    cursor: pointer;
+  }
+  .Sidebar-res:hover .Sidebar-toggleArrow {
+    transition: left 0.2s ease, rotate 1s ease;
+    left: 70px;
+  }
+
+  .Sidebar-res:hover .Sidebar-toggleText {
+    opacity: 1;
+    animation: fadeIn 0.75s ease;
+    color: #fff;
+  }
+
+  .Sidebar-toggleArrow {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-7px);
+    cursor: pointer;
+    transition: left 0.2s ease;
+  }
+
+  .Sidebar-toggleText {
+    position: absolute;
+    bottom: 14px;
+    left: 45%;
+    opacity: 0;
+    color: #818181;
+    font-size: 20px;
+    white-space: nowrap;
+  }
+  .Sidebar-menuIcon {
+    color: #818181;
+  }
+
+  #upBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 30px;
+    z-index: 99;
+    font-family: monospace;
+    letter-spacing: -2px;
+    font-size: 25px;
+    border: none;
+    outline: none;
+    background-color:#7a3b2e;
+    color: white;
+    cursor: pointer;
+    padding: 0 30px;
+    border-radius: 7px;
+    transition: 0.5s;
+  }
+
+  #upBtn:hover{
+    transition: 0.5s;
+    background-color: #c94c4c;
+    color: #034f84;
+  }
+
+  .Main {
+    display: table-cell;
+    vertical-align: top;
+    width: 100%;
+    height: 95vh;
+  }
+  
+  @media(max-width: 575px) {
+      .Sidebar-res {
+        height: 40px;
+        width: 60%;
+    }
+    .Sidebar-toggleArrow {
+        top: 12px;
+    }
+    .Sidebar {
+      max-width: 100px;
+    }
+    .Sidebar .itemLeft {
+      padding-left: 0px;
+    }
+    .Sidebar .itemLeft h4 {
+      font-size: 12px;
+    }
+    #cartBtns {
+      display: grid;
+      padding-left: 0px;
+    }
+    #cartItemPrice .badge {
+      padding-left: 0px;
+    }
+  }
