@@ -9,7 +9,7 @@
 
 #contactTopImg {
     animation: fadeIn 0.9s ease-in;
-    background: url(../images/contactUs.jpg);
+    background: url(../images/contactUs.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -490,6 +490,10 @@ a:focus,
 a:active,
 a.active {
     outline: 0;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    background: transparent;
 }
 
 .img-centered {

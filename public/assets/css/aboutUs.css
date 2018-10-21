@@ -27,6 +27,24 @@
     animation: fadeIn 0.5s ease-in;
 }
   
+#block-1 .grow {
+    font-size: 2.6em;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: monospace;
+    position: absolute;
+    left: 11%;
+    top: 390px;
+    letter-spacing: 4px;
+    text-shadow: 1px 4px 7px;
+    text-decoration: overline;
+}
+
+#block-1 img {
+    width: 75px;
+    margin-left: 10px;
+}
+
 .block-left {
     clip-path: polygon(0 0, 40% 0, 62% 100%, 0% 100%);
     box-shadow: inset 0px 0px 100px 25px rgba(0, 0, 0, 0.75);
@@ -45,13 +63,6 @@
     position: absolute;
     right: 0px;
     height: 100%;
-}
-  
-#block-1 img {
-    max-width: 35%;
-    position: absolute;
-    top: 35%;
-    left: 150px;
 }
   
 #block-2 {
@@ -164,13 +175,31 @@
     left: -47px;
     margin-bottom: 15px;
 }
-  
-@media(max-width: 1200px) {
+
+
+@media(max-width: 1300px) {
+    #block-1 .grow {
+        font-size: 2.4em;
+        left: 9%;
+    }
+    #block-1 img {
+        max-width: 70px;
+    }
     .block-left {
         clip-path: polygon(0 0, 53% 0, 62% 100%, 0% 100%);
     }
     .block-right {
         clip-path: polygon(50% 0, 100% 0, 100% 100%, 40% 100%);
+    }
+}
+
+@media(max-width: 1070px) {
+    #block-1 .grow {
+        font-size: 2.2em;
+        left: 6%;
+    }
+    #block-1 img {
+        max-width: 60px;
     }
 }
 
@@ -181,18 +210,48 @@
     #block-4 {
         background-position: left -350px top;
     }
+    #block-1 .grow {
+        font-size: 2em;
+        left: 4%;
+    }
+    #block-1 img {
+        max-width: 50px;
+    }
+}
+
+@media(max-width: 740px) {
+    #block-1 .grow {
+        font-size: 1.6em;
+        left: 2%;
+    }
+    #block-1 img {
+        max-width: 30px;
+    }
 }
 
 @media(max-width: 650px) {
     #block-1 {
         background-position: left 200px top 0px;
     }
-    #block-1 .grow {
-        left: 85px;
-        max-width: 30%;;
-    }
     #block-3 {
         background-position: left 170px top;
+    }
+    #block-1 .grow {
+        font-size: 1.3em;
+        left: 2%;
+    }
+    #block-1 img {
+        max-width: 25px;
+    }
+}
+
+@media(max-width: 500px) {
+    #block-1 .grow {
+        display: grid;
+    }
+    #block-1 img {
+        margin: 10px auto;
+        max-width: 45px;
     }
 }
 
@@ -204,6 +263,17 @@
         font-size: 1.9em;
     }
     .content-3 {
-        font-size: 7px !important;
+        font-size: 7px ;
+    }
+    #block-1 .grow {
+        font-size: 1em;
+    }
+    #block-1 img {
+        max-width: 35px;
     }
 }
+
+
+
+
+
