@@ -2019,10 +2019,6 @@ END: LOADING ICON FOR LOGGING OUT USER
         width: 90%;
         margin-left: 5%;
     }
-    #storeTopImg .img {
-        width: 40%;
-        left: 30%;
-    }
     #checkoutPageContainer h2 {
         font-size: 14px;
     }
@@ -2090,10 +2086,6 @@ END: LOADING ICON FOR LOGGING OUT USER
 }
 
 @media(max-width: 575px) {
-    #storeTopImg .img {
-        width: 50%;
-        left: 25%;
-    }
     .Main .navbar-form {
         width: 35%;
         margin-left: 85px;
