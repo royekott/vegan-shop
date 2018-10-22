@@ -17,7 +17,7 @@
     opacity: 0.7;
 }
 
-.homePage , .storePage{
+.homePage {
     animation: dafeIn 0.8s ease-in;
 }
 body::-webkit-scrollbar {
@@ -233,20 +233,11 @@ body {
     padding: 0;
 }
 
-.topNav li:last-child {
-    margin-right: 0;
-}
-
 .topNav li a {
     display: block;
     padding: 30px 0;
     color: inherit;
     text-shadow: 3px 3px 8px darkgreen;
-}
-
-.topNav ul li:hover > ul{ 
-    visibility: visible;
-    opacity:1;
 }
 
 #header #logo a {
@@ -558,7 +549,6 @@ header {
 
 .bestSellersDiv {
     text-align: center;
-    padding-right: 10%;
 }
 
 .section-title:before,
@@ -577,23 +567,12 @@ header {
     margin-right: 45px;
 }
 
-.tab .section-title:before, .bestSellersDiv .section-title:before {
-    right:  120%;
-    margin-right: 45px;
-    color: #fff;
-}
-
 .section-title:after {
     left: 100%;
     margin-left: 45px;
 }
 
-.tab .section-title:after, .bestSellersDiv .section-title:after {
-    margin-left: 45px;
-    color: #fff;
-}
-
-.bestSellersDiv .section-title h1 {
+.bestSellersDiv h1 {
     font-family: monospace;
     font-weight: 700;
     letter-spacing: 2px;
@@ -602,7 +581,7 @@ header {
     text-transform: uppercase;
 }
 
-.tab .section-title h1 {
+.tab h1 {
     font-family: monospace;
     font-weight: 700;
     letter-spacing: 2px;
@@ -934,7 +913,7 @@ section {
 }
 
 #testimonials .flex-direction-nav .flex-next {
-    right:-60px; 
+    
     text-align: center;
 }
 
@@ -1284,10 +1263,11 @@ END: LOADING ICON FOR LOGGING OUT USER
     text-align: center;
     margin-top: 30px;
     margin-bottom: 30px;
+    margin-left: 5px;
 }
 
 .Main .navbar-form button {
-    padding: 5px 30px;
+    padding: 5px 20px;
     font-size: 1.1em;
     font-family: fantasy;
     letter-spacing: 2px;
@@ -1349,14 +1329,8 @@ END: LOADING ICON FOR LOGGING OUT USER
 }
 
 .tab {
-    height: 150vh;
     text-align: center;
-    padding: 5%;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    box-shadow: 0px 6px 7px 4px rgba(0, 0, 0, 0.5);
-    margin: 50px 160px 50px 0px;
-    border-radius: 5px;
+    padding-right: 5%;
 }
 
 .tab button {
@@ -1838,18 +1812,9 @@ END: LOADING ICON FOR LOGGING OUT USER
 
 /* Responsive */
 
-@media(max-width: 1440px) {
-    #searchResults {
-        padding-right: 10%;
-    }
-}
-
 @media(max-width: 1260px) {
     .bestSellersDiv .col-md-4 {
         width: 30%;
-    }
-    .tab {
-        width: 80%;
     }
     #checkoutPageContainer h2 {
         font-size: x-large;
@@ -1857,22 +1822,9 @@ END: LOADING ICON FOR LOGGING OUT USER
     #checkoutTopImg {
         height: 60vh;
     }
-    #searchResults {
-        padding-right: 20%;
-    }
-}
-
-@media(max-width: 1200px) {
-    #searchResults {
-        padding-right: 17%;
-    }
 }
 
 @media(max-width: 1065px) {
-    .tab {
-        width: 74%;
-
-    }
     .Main .thumbnail h3 {
         font-size: 21px;
     }
@@ -1896,24 +1848,9 @@ END: LOADING ICON FOR LOGGING OUT USER
     }
 }
 
-@media(max-width: 992px) {
-    #searchResults {
-        padding-right: 14%;
-    }
-}
-
 @media(max-width: 920px) {
-    .tab {
-        width: 67%;
-    }
-    #bestSellerContainer {
-        margin-left: 28px;
-    }
     #checkoutPageContainer h2 {
         font-size: large;
-    }
-    #searchResults {
-        margin-left: 21px;
     }
 }
 
@@ -1921,13 +1858,6 @@ END: LOADING ICON FOR LOGGING OUT USER
 @media(max-width: 800px) {
     .cartButtons {
         display: grid;
-    }
-    #bestSellerContainer {
-        width: 74%;
-        margin-left: 0;
-    }
-    .tab {
-        width: 60%;
     }
     #checkoutTopImg img {
         width: 38%;
@@ -1939,19 +1869,9 @@ END: LOADING ICON FOR LOGGING OUT USER
     .order-table td:last-of-type {
         padding-left: 0px; 
     }
-    #searchResults {
-        padding-right: 17%;
-        margin-left: 0px;
-    }
 }
 
 @media(max-width: 768px) {
-    .topNav .collapse {
-        padding-bottom: 20px;
-        border: 1px solid;
-        text-align: center;
-        background: #c2d4dd;
-    }
     .topNav li a {
         padding: 15px 0px;
     }
@@ -1991,33 +1911,35 @@ END: LOADING ICON FOR LOGGING OUT USER
         font-size: 18px;
     }
     #managementSearchRow h1 {
-        font-size: 20px;
+        font-size: 17px;
     }
     #btnShowAllResults {
         font-size: 1.3em;
     }
-    #searchResults {
-        padding-right: 34%;
+    .userManagementContainer .navbar-form {
+        margin-right: 0;
+    }
+}
+
+@media(max-width: 767px) {
+    .topNav .collapse {
+        padding-bottom: 20px;
+        border: 1px solid;
+        text-align: center;
+        background: #c2d4dd;
+    }
+    .topNav ul.clear {
+        display: grid;
     }
 }
 
 @media(max-width: 705px) {
     .Main .navbar-form {
-        width: 55%;
+        width: 100%;
     }
     .bestSellersDiv .col-md-4 {
         width: 75%;
         margin-left: 55px;
-    }
-    .bestSellersDiv {
-        padding-right: 24%; 
-    }
-    .tab {
-        width: 50%;
-    }
-    .tab .col-xs-6 {
-        width: 90%;
-        margin-left: 5%;
     }
     #checkoutPageContainer h2 {
         font-size: 14px;
@@ -2074,9 +1996,6 @@ END: LOADING ICON FOR LOGGING OUT USER
     .price {
         font-size: 0.9em;
     }
-    #searchResults {
-        padding-right: 46%;
-    }
 }
 
 @media(max-width: 615px) {
@@ -2086,10 +2005,6 @@ END: LOADING ICON FOR LOGGING OUT USER
 }
 
 @media(max-width: 575px) {
-    .Main .navbar-form {
-        width: 35%;
-        margin-left: 85px;
-    }
     #searchProductsInput {
         width: 100%;
         margin-bottom: 5px;
@@ -2115,24 +2030,11 @@ END: LOADING ICON FOR LOGGING OUT USER
 }
 
 @media(max-width: 510px) {
-    .bestSellersDiv {
-        padding-right: 40%;
-    }
-    .Main .navbar-form {
-        margin-left: 41px;
-    }
-    .tab {
-        width: 44%;
-    }
     .tabLinksContainer .tablinks {
         margin-right: 3px;
         margin-left: 3px;
         padding: 5px 7px;
         font-size: 15px;
-    }
-    .tab .col-xs-6 {
-        width: 100%;
-        margin:0; 
     }
     #checkoutTopImg {
         height: 32vh;
@@ -2150,13 +2052,6 @@ END: LOADING ICON FOR LOGGING OUT USER
     #checkoutForm .help-block, #checkoutForm ul {
         font-size: 12px;
     }
-    #searchResults {
-        padding-right: 0px;
-    }
-    #searchResults .col-xs-6 {
-        width: 85%;
-        padding-right: 45%;
-    }
 }
 
 @media(max-width: 485px) {
@@ -2164,7 +2059,10 @@ END: LOADING ICON FOR LOGGING OUT USER
         width: 65px;
     }
     .productManagementContainer .panel table td img {
-        max-width: 140px;
+        max-width: 120px;
+    }
+    .Main {
+        width: 70%;
     }
 }
 
@@ -2215,7 +2113,45 @@ END: LOADING ICON FOR LOGGING OUT USER
         left: 30%;
     }
     .productManagementContainer .panel table td img {
-        max-width: 100px; 
+        max-width: 40px; 
+    }
+    .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+        padding: 2px;
+        font-size: 0.7em;
+    }
+    
+}
+
+@media(max-width: 400px) {
+    .Main {
+        width: 60%;
+        margin-left: -15px;
+    }
+    .bestSellersDiv h1 {
+        margin-left: 15px;
+        font-size: 23px;
+    }
+    .Main .thumbnail span {
+        right: 10px
+    }
+    .Main .bestSellersDiv .thumbnail span {
+        right: 10px;
+    }
+    .tab h1 {
+        font-size: 23px;
+    }
+    .tabLinksContainer {
+        margin-right: 13px;
+    }
+    .tab .row .col-xs-6 {
+        width: 100%;
+    }
+    .bestSellersDiv .col-md-4 {
+        width: 85%;
+        margin-left: 30px;
+    }
+    #searchResults .col-xs-6 {
+        width: 100%;
     }
 }
 
@@ -2226,11 +2162,5 @@ END: LOADING ICON FOR LOGGING OUT USER
     }
     .userManagementContainer .panel table td, .productManagementContainer .panel table td {
         font-size: 0.7em;
-    }
-}
-
-@media(max-width: 360px) {
-    .tab {
-        width: 42%;
     }
 }

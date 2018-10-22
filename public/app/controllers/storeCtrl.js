@@ -91,12 +91,7 @@ angular.module('storeController', ['storeServices', 'ngDialog'])
             app.limit = 0;
         }
     };
-
-    app.topFunction = function () {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    }
-
+    
     app.reduceByOne = function () {
         $scope.get_productsId = $(event.target).attr("data-id");
         $http.get('/api/reduce/' + $scope.get_productsId).then(function (data) {

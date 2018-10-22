@@ -1,12 +1,13 @@
-<div class="storePage">
-    <div class="container-fluide" id="storeTopImg">
+
+    <div id="storeTopImg">
         <div class="storeMainHeadline">
-            <h1>welcome</h1>
+            <h1>buy fresh</h1>
         </div>
     </div>
-    <div class="Wrapper container" ng-app="myApp">
+    
+    <div class="Wrapper" ng-app="myApp">
         <br>
-        <div class="Sidebar" ng-class="boolie ? 'is-collapsed' : ''">
+        <div class="Sidebar col-md-2 col-sm-2 col-xs-2" ng-class="boolie ? 'is-collapsed' : ''">
             <header class="Sidebar-res" ng-click="boolie = !boolie">
                 <i class="Sidebar-toggleArrow Sidebar-menuIcon fa fa-arrow-left" ng-class="boolie ? 'rotate' : ''"></i>
                 <span class="Sidebar-toggleText">close</span>
@@ -47,68 +48,70 @@
                     <a href="/checkout" type="button" class="btn col-sm-12 btn-lg hvr-icon-wobble-horizontal" title="Go to checkout"><i class="fas fa-credit-card hvr-icon"></i></a>
                     <button class="btn col-sm-12 btn-lg hvr-icon-pulse-grow" ng-click="store.openConfirmButton()" title="Save cart and logout"><i class="far fa-save hvr-icon"></i></button>
                 </div>
-                <button type="button" id="upBtn" class="btn hvr-icon-drop" ng-click="store.topFunction()">Up <i class="fas fa-arrow-up hvr-icon"></i></button>
             </div>
         </div>
-        <div class="Main">
+        <div class="Main col-md-10 col-sm-10 col-xs-9">
             <div class="navbar-form">
                 <div class="form-group hvr-float-shadow" id="searchProductsInput">
                     <input type="text" class="form-control" id="inputSearchStore" name="search" placeholder="Search products.." ng-model="searchKeyword">
                 </div>
                 <button type="button" ng-click="store.search(searchKeyword, number);" class="btn hvr-bounce-to-top hvr-icon-wobble-vertical">Search <i class="fas fa-search hvr-icon"></i></button>
             </div>
-            <div class="container" id="searchResults">
-                <div>
-                    <h1 ng-show="store.display">Resulte:</h1>
-                    <div class="col-md-4 col-sm-4 col-xs-6" ng-repeat="product in store.products | filter: searchFilter | limitTo: store.limit">
-                        <div class="thumbnail hvr-float-shadow hvr-glow">
-                            <h3>{{ product.title }}</h3>    
-                            <img src="{{ product.imagePath }}">
-                            <a class="hvr-icon-bob" role="button" href="/add-to-cart/" ng-click="store.addToCart()" data-id="{{ product._id }}" data-product="{{ product }}">
-                            <i class="fas fa-cart-plus hvr-icon"></i></a><span>${{ product.price }}</span>   
-                        </div>   
-                    </div>
+            
+            <div id="searchResults">
+                <h1 ng-show="store.display">Resulte:</h1>
+                <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-6" ng-repeat="product in store.products | filter: searchFilter | limitTo: store.limit">
+                    <div class="thumbnail hvr-float-shadow hvr-glow">
+                        <h3>{{ product.title }}</h3>    
+                        <img src="{{ product.imagePath }}">
+                        <a class="hvr-icon-bob" role="button" href="/add-to-cart/" ng-click="store.addToCart()" data-id="{{ product._id }}" data-product="{{ product }}">
+                        <i class="fas fa-cart-plus hvr-icon"></i></a><span>${{ product.price }}</span>   
+                    </div>   
                 </div>
             </div>
-            <div class="container" id="bestSellerContainer">
-                <div class="bestSellersDiv">
-                    <span class="section-title"><h1>Best Selleres</h1></span>
-                    <br>
-                    <div class="col-md-4 col-sm-4 col-xs-4" ng-repeat="product in store.bestSellers">
-                        <div class="thumbnail hvr-glow hvr-hang">
-                            <h3>{{ product.title }}</h3>    
-                            <img src="{{ product.imagePath }}">
-                            <a class="hvr-icon-wobble-horizontal" role="button" href="/add-to-cart/" ng-click="store.addToCart()" data-id="{{ product._id }}" data-product="{{ product }}">
-                            <i class="fas fa-cart-plus hvr-icon"></i></a><span>${{ product.price }}</span>     
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <div class="tab">
-                    <span class="section-title"><h1>All Products</h1></span>
-                    <div class="tabLinksContainer">
-                        <button class="tablinks" data-category="snacks" ng-click="store.category()">Snacks</button>
-                        <button class="tablinks" data-category="fresh" ng-click="store.category()">From the field</button>
-                        <button class="tablinks" data-category="liquids" ng-click="store.category()">Liquids</button>
-                        <button class="tablinks"  data-category="vegan" ng-click="store.category()">Vegan</button>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6 col-xs-6" ng-repeat="product in store.current_category">
-                            <div class="thumbnail hvr-box-shadow-outset hvr-bob">
-                                <h3>{{ product.title }}</h3>    
-                                <img src="{{ product.imagePath }}">
-                                <a class="hvr-icon-buzz-out" role="button" href="/add-to-cart/" ng-click="store.addToCart()" data-id="{{ product._id }}" data-product="{{ product }}">
-                                <i class="fas fa-cart-plus hvr-icon"></i></a><span>${{ product.price }}</span>    
-                            </div>
-                        </div>
-                        </div>
+        </div>
+            
+            <div class="bestSellersDiv">
+                <hr>
+                <h1>Best Selleres</h1>
+                <hr>
+                <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-4" ng-repeat="product in store.bestSellers">
+                    <div class="thumbnail hvr-glow hvr-hang">
+                        <h3>{{ product.title }}</h3>    
+                        <img src="{{ product.imagePath }}">
+                        <a class="hvr-icon-wobble-horizontal" role="button" href="/add-to-cart/" ng-click="store.addToCart()" data-id="{{ product._id }}" data-product="{{ product }}">
+                        <i class="fas fa-cart-plus hvr-icon"></i></a><span>${{ product.price }}</span>     
                     </div>
                 </div>
             </div>
         </div>
+            <div class="tab">
+                <h1>All Products</h1>
+                <div class="tabLinksContainer">
+                    <button class="tablinks" data-category="snacks" ng-click="store.category()">Snacks</button>
+                    <button class="tablinks" data-category="fresh" ng-click="store.category()">From the field</button>
+                    <button class="tablinks" data-category="liquids" ng-click="store.category()">Liquids</button>
+                    <button class="tablinks"  data-category="vegan" ng-click="store.category()">Vegan</button>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-xs-6" ng-repeat="product in store.current_category">
+                        <div class="thumbnail hvr-box-shadow-outset hvr-bob">
+                            <h3>{{ product.title }}</h3>    
+                            <img src="{{ product.imagePath }}">
+                            <a class="hvr-icon-buzz-out" role="button" href="/add-to-cart/" ng-click="store.addToCart()" data-id="{{ product._id }}" data-product="{{ product }}">
+                            <i class="fas fa-cart-plus hvr-icon"></i></a><span>${{ product.price }}</span>    
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </div>
     </div>
+
+
+
 <script type="text/ng-template" id="saveAndLogout">
     <div class="ngdialog-message">
         <h3>Save shopping cart and Sign out</h3>

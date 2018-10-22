@@ -93,7 +93,7 @@
     background: url(../images/slide12.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: right;
     margin-bottom: 0px;
 }
@@ -129,10 +129,11 @@
   
 .content-3 {
     margin-top: 100px;
+    position: absolute;
+    right: 0;
     color: white;
     text-align: center;
     width: 40%;
-    float: right;
     font-family: monospace;
     font-weight: 700;
 }
@@ -246,6 +247,9 @@
 }
 
 @media(max-width: 500px) {
+    #block-1 {
+        background-position: left 100px top 0px;
+    }
     #block-1 .grow {
         display: grid;
     }
